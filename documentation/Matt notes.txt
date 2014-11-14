@@ -1,0 +1,28 @@
+printf ("user_name %s", get_config("user_name"));
+
+
+getAppMessage
+
+in appinfo.json
+
+
+CONFIG_KEY: 100 //out of the way - contains the value of how many are in the list.
+//Then go through the List +1 , +2, +3
+
+persist_write_int(List.getlength);
+
+Version 0.1 goal: Build a somewhat broken, but functional flow to the whole thing.
+
+Version 0.2 goal: Integrate Matt's union structs, and make the whole thing more soft coded.
+- Use the ASCII List method instead of hard coding methods.
+- Use the config structure.
+- Eliminates the need for appKeys to be manually entered.
+
+developer sees the method: get_config("user_name");
+
+
+Version 0.3 goal: Locally host HTML pages
+- Eliminates the need for versioned hosted HTML pages. Every binary should just work.
+
+Version 0.4 goal: Proxy app message
+- Eliminates the need to drop into the main C file a appmessage listener.

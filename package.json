@@ -1,0 +1,29 @@
+{
+  "name": "watch-settings-server",
+  "version": "0.0.0",
+  "description": "Pebble Watch Config Framework",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/RapidCollective/watch-settings-server.git"
+  },
+  "author": "Chris Gervang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RapidCollective/watch-settings-server/issues"
+  },
+  "homepage": "https://github.com/RapidCollective/watch-settings-server",
+  "dependencies": {
+    "mocha": "^2.0.1",
+    "should": "^4.2.1",
+    "swag": "^0.7.0",
+    "handlebars": "^2.0.0",
+    "firebase": "^2.0.2"
+  }
+}

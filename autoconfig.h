@@ -1,26 +1,27 @@
-#ifndef autoconfig_h
-#define autoconfig_h
+#ifndef watchsettings_h
+#define watchsettings_h
 
 #include <pebble.h>
 
-{{#each settingsList}}
-
-  //this defines the mapping between dev friendly name and memory friendly ID
-  #define {{uppercase cvarname name }}/*cvarname & upper */_PKEY {{ appKeysAccessor name }} /*json mapping of appKeys given a name */
-
-  {{ #is type "bool" }}
-    bool get{{ capitalizeFirst cvarname name }} /* cvarname & capitalize */();
-  {{ /is }}
-
-  {{ #is type "string" }}
-    char* get{{ capitalizeFirst cvarname name }} /* cvarname & capitalize */();
-  {{ /is }}
-
-  {{ #is type "int" }}
-    int32_t get{{ capitalizeFirst cvarname name }} /* cvarname & capitalize */();
-  {{ /is }}
-
-{{ /each }}
+#define {{ uppercase (cvarname oauth.id) }}/*cvarname & upper */_PKEY {{ appKeysAccessor oauth.id }}/*json mapping of appKeys given a name. -> return appKeys[lowercase(input)] */
+char* get{{ capitalizeFirst (cvarname oauth.id) }}Token/* cvarname & capitalize */();
+{{#each settings.settingsList}}
+  {{#is type "toggle"}}
+  /*this defines the mapping between dev friendly name and memory friendly ID*/
+  #define {{ uppercase (cvarname data.id) }}/*cvarname & upper */_PKEY {{ appKeysAccessor data.id }}/*json mapping of appKeys given a name */
+  bool get{{ capitalizeFirst (cvarname data.id) }}/* cvarname & capitalize */();
+  {{/is}}
+  {{#is type "input"}}
+  /*this defines the mapping between dev friendly name and memory friendly ID*/
+  #define {{ uppercase (cvarname data.id) }}/*cvarname & upper */_PKEY {{ appKeysAccessor data.id }}/*json mapping of appKeys given a name */
+  char* get{{ capitalizeFirst (cvarname data.id) }}/* cvarname & capitalize */();
+  {{/is}}
+  {{#is type "radio"}}
+  /*this defines the mapping between dev friendly name and memory friendly ID*/
+  #define {{ uppercase (cvarname data.id) }}/*cvarname & upper */_PKEY {{ appKeysAccessor data.id }}/*json mapping of appKeys given a name */
+  char* get{{ capitalizeFirst (cvarname data.id) }}/* cvarname & capitalize */();
+  {{/is}}
+{{/each}}
 
 void autoconfig_in_received_handler(DictionaryIterator *iter, void *context);
 
